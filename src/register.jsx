@@ -8,6 +8,8 @@ const Register = () => {
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(null);
+  const [focus, setFocus] = useState("none");
   const navigate=useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
@@ -69,7 +71,7 @@ const Register = () => {
       <label class="input-label">Username:</label>
       <input
         class="input-field username"
-        type="text"
+        type="email"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
@@ -80,16 +82,42 @@ const Register = () => {
     <div class="input-group password-info">
       <label class="input-label">Password:</label>
       <input
-        class="input-field password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
+  className="input-field password"
+  type="password"
+  minLength={8}
+  value={password}
+  onFocus={()=>{setFocus("block")}}
+  onBlur={()=>{setFocus("none")}}
+  onChange={(e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword); // Update password state
+    setIsValid( /^(?=.*\d)(?=.*[\W_])(?=.*[A-Z]).{8,}$/.test(password)); // Validate password
+  }}
+  style={{ borderColor: isValid === false ? "red" : "" }}
+  required
+/>
+<ul style={{ fontSize: "14px" , display:focus}}>
+        <li style={{ color: password.length >= 8 ? "green" : "red" }}>
+          {password.length >= 8 ? "✔" : "✖"} At least 8 characters
+        </li>
+        
+        <li style={{ color: /[A-Z]/.test(password) ? "green" : "red" }}>
+          {/\d/.test(password) ? "✔" : "✖"} At least 1 UpperCase character
+        </li>
+
+        <li style={{ color: /\d/.test(password) ? "green" : "red" }}>
+          {/\d/.test(password) ? "✔" : "✖"} At least 1 number
+        </li>
+        <li style={{ color: /[\W_]/.test(password) ? "green" : "red" }}>
+          {/[\W_]/.test(password) ? "✔" : "✖"} At least 1 special character
+        </li>
+      </ul>
       <br />
       <br />
     </div>
-    <button class="submit-button" type="submit">Register</button>
+    <button class="submit-button" type="submit" 
+    disabled={!isValid}
+    >Register</button>
   </form>
 </div>
 
