@@ -90,25 +90,34 @@ const Register = () => {
   onBlur={()=>{setFocus("none")}}
   onChange={(e) => {
     const newPassword = e.target.value;
-    setPassword(newPassword); // Update password state
-    setIsValid( /^(?=.*\d)(?=.*[\W_])(?=.*[A-Z]).{8,}$/.test(password)); // Validate password
+    setPassword(newPassword);
+    // Validate password with new value
+    const isPasswordValid =
+      /^(?=.*\d)(?=.*[\W_])(?=.*[A-Z])(?=.*[a-z]).{8,}$/.test(newPassword);
+  
+    // Enable only when 9+ characters & valid, disable if 6 or less
+    setIsValid(isPasswordValid && newPassword.length >= 8);
   }}
   style={{ borderColor: isValid === false ? "red" : "" }}
   required
 />
-<ul style={{ fontSize: "14px" , display:focus}}>
-        <li style={{ color: password.length >= 8 ? "green" : "red" }}>
+<ul style={{ fontSize: "14px" , display:focus,listStyle:"none",fontSize:"16px"}}>
+        <li style={{ color: password.length >= 8 ? "green" : "white" }}>
           {password.length >= 8 ? "✔" : "✖"} At least 8 characters
         </li>
         
-        <li style={{ color: /[A-Z]/.test(password) ? "green" : "red" }}>
+        <li style={{ color: /[A-Z]/.test(password) ? "green" : "white" }}>
           {/\d/.test(password) ? "✔" : "✖"} At least 1 UpperCase character
         </li>
 
-        <li style={{ color: /\d/.test(password) ? "green" : "red" }}>
+        <li style={{ color: /[a-z]/.test(password) ? "green" : "white" }}>
+          {/\d/.test(password) ? "✔" : "✖"} At least 1 LowerCase character
+        </li>
+
+        <li style={{ color: /\d/.test(password) ? "green" : "white" }}>
           {/\d/.test(password) ? "✔" : "✖"} At least 1 number
         </li>
-        <li style={{ color: /[\W_]/.test(password) ? "green" : "red" }}>
+        <li style={{ color: /[\W_]/.test(password) ? "green" : "white" }}>
           {/[\W_]/.test(password) ? "✔" : "✖"} At least 1 special character
         </li>
       </ul>
