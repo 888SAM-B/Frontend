@@ -24,7 +24,7 @@ const InitialTest = () => {
         return;
       }
       try {
-        const response = await fetch("http://localhost:8001/profile", {
+        const response = await fetch("https://mainbackend.up.railway.app/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const InitialTest = () => {
     setCourse(selectedValue);
   
     try {
-      const response = await fetch("http://localhost:8001/update-course", {
+      const response = await fetch("https://mainbackend.up.railway.app/update-course", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -112,53 +112,53 @@ const InitialTest = () => {
 
       <div className="first-three"  >
         <div className="courseName" >
-          <img className="img88" src="public/java.png" alt="" />
+          <img className="img88" src="/java.png" alt="" />
       <button className="btn-all" >JAVA 
       <Progress pro={java}/>
       </button>
-      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"JAVA"} >{java>0?java>=100?"REVISITE":"  CONINUE":"START"}</button>
+      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"JAVA"} >{java>0?java>=100?"REVISIT":"  CONTINUE":"START"}</button>
       </div>
        
 
       <div  className="courseName" >
-      <img className="img88" src="public/js.png" alt="" />
+      <img className="img88" src="/js.png" alt="" />
       <button className="btn-all">
       JAVASCRIPT 
       <Progress pro={js}/>
       </button>
-      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"JS"} >{js>0?js>=100?"REVISITE":"  CONINUE":"START"}</button>
+      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"JS"} >{js>0?js>=100?"REVISIT":"  CONTINUE":"START"}</button>
       </div>
       
 
       <div  className="courseName" >
-      <img className="img88" src="public/python.png" alt="" />
+      <img className="img88" src="/python.png" alt="" />
       <button className="btn-all"   >
       PYTHON
       <Progress pro={python}/>
       </button>
-      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"PYTHON"} >{python>0?python>=100?"REVISITE":"  CONINUE":"START"}</button>
+      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"PYTHON"} >{python>0?python>=100?"REVISIT":"  CONTINUE":"START"}</button>
       </div>
       </div>
 
 
       <div className="first-three"  >
       <div  className="courseName"  >
-      <img className="img88" src="public/html.png" alt="" />
+      <img className="img88" src="/html.png" alt="" />
       <button className="btn-all"   >
       HTML
       <Progress pro={html}/>
       </button>
-      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"HTML"}>{html>0?html>=100?"REVISITE":"  CONINUE":"START"}</button>
+      <button  className="onClick"   onClick={(e)=>selectedCourse(e)} value={"HTML"}>{html>0?html>=100?"REVISIT":"  CONTINUE":"START"}</button>
       </div>
       
 
       <div  className="courseName" >
-      <img className="img88" src="public/css.png" alt="" />
+      <img className="img88" src="/css.png" alt="" />
       <button  className="btn-all" >
       CSS
       <Progress pro={css}/>
       </button>
-      <button  className="onClick">{css>0?css>=100?"REVISITE":"  CONINUE":"START"}</button>
+      <button  className="onClick">{css>0?css>=100?"REVISIT":"  CONTINUE":"START"}</button>
       </div>
       </div>
       

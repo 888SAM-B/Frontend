@@ -21,7 +21,7 @@ const Certificate = () => {
   
     const fetchProfile = async () => {
       try {
-        const response = await fetch("http://localhost:8001/profile", {
+        const response = await fetch("https://mainbackend.up.railway.app/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,

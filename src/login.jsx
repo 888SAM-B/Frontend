@@ -13,7 +13,7 @@ const Login = () => {
     const data = { username: userName, password: userPassword };
 
     try {
-      const response = await fetch("http://localhost:8001/login", {
+      const response = await fetch("https://mainbackend.up.railway.app/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -68,7 +68,7 @@ const Login = () => {
         <br />
         <button class="submit-button" type="submit">Login</button>
       </form>
-
+      <a href="/register" className="optional ">Create an Account </a>
       {errorMessage && <div style={{ color: 'red', marginTop: '10px' }}>{errorMessage}</div>}  {/* Display error message if any */}
     </div>
     </div>

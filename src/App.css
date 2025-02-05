@@ -7,7 +7,7 @@
 
 body{
   all: unset;
-  background-color:#fff;
+  background: radial-gradient(ellipse at bottom, #213041 0%, #20282e 100%);
 }
   
 .nav {
@@ -225,6 +225,7 @@ body{
   width: 70%;
   padding: 10px 15px;
   font-size: 16px;
+  
   color: #ffffff;
   background-color: #D91656;
   border: none;
@@ -300,7 +301,8 @@ textarea:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 100vh;
+  padding: 30px 0px;
+  min-height: 100vh;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
 }
 
@@ -421,6 +423,12 @@ textarea:focus {
   font-family: "Hedvig Letters Sans", serif;
   font-weight: bold;
   letter-spacing: 1.4px;
+  display: flex;
+  align-items: center;
+}
+.profile-info strong{
+  /* border: 1px solid; */
+  width: 130px;
 }
 
 .profile-label {
@@ -754,7 +762,7 @@ textarea:focus {
 }
 
 .submit-button:disabled {
-  background-color: #cbd5e0;
+  background-color: #cbd5e073;
   cursor: not-allowed;
   opacity: 0.7;
 }
@@ -1797,4 +1805,9 @@ textarea:focus {
   margin-top: 10px;
   cursor: pointer;
   /* display: none; */
+}
+.optional{
+  font-family: Roboto;
+  color: #D91656;
+  text-decoration: none;
 }

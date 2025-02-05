@@ -8,12 +8,14 @@ const Register = () => {
   const [lastname, setLastname] = useState("");
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
+  const [isValid, setIsValid] = useState(null);
+  const [focus, setFocus] = useState("none");
   const navigate=useNavigate();
   const handleSubmit = async (event) => {
     event.preventDefault();
     const data = { firstname, lastname, username, password };
     try {
-      const response = await fetch("http://localhost:8001/register", {
+      const response = await fetch("https://mainbackend.up.railway.app/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -66,10 +68,10 @@ const Register = () => {
       />
       <br />
       <br />
-      <label class="input-label">Username:</label>
+      <label class="input-label">Username <span>( E mail )</span>:</label>
       <input
         class="input-field username"
-        type="text"
+        type="email"
         value={username}
         onChange={(e) => setUsername(e.target.value)}
         required
@@ -80,17 +82,53 @@ const Register = () => {
     <div class="input-group password-info">
       <label class="input-label">Password:</label>
       <input
-        class="input-field password"
-        type="password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-        required
-      />
+  className="input-field password"
+  type="password"
+  minLength={8}
+  value={password}
+  onFocus={()=>{setFocus("block")}}
+  onBlur={()=>{setFocus("none")}}
+  onChange={(e) => {
+    const newPassword = e.target.value;
+    setPassword(newPassword);
+    // Validate password with new value
+    const isPasswordValid =
+      /^(?=.*\d)(?=.*[\W_])(?=.*[A-Z])(?=.*[a-z]).{8,}$/.test(newPassword);
+  
+    // Enable only when 9+ characters & valid, disable if 6 or less
+    setIsValid(isPasswordValid && newPassword.length >= 8);
+  }}
+  style={{ borderColor: isValid === false ? "red" : "" }}
+  required
+/>
+<ul style={{ fontSize: "14px" , display:focus,fontSize:"16px"}}>
+        <li style={{ color: password.length >= 8 ? "green" : "white" }}>
+           At least 8 characters
+        </li>
+        
+        <li style={{ color: /[A-Z]/.test(password) ? "green" : "white" }}>
+           At least 1 UpperCase character
+        </li>
+
+        <li style={{ color: /[a-z]/.test(password) ? "green" : "white" }}>
+           At least 1 LowerCase character
+        </li>
+
+        <li style={{ color: /\d/.test(password) ? "green" : "white" }}>
+           At least 1 number
+        </li>
+        <li style={{ color: /[\W_]/.test(password) ? "green" : "white" }}>
+           At least 1 special character
+        </li>
+      </ul>
       <br />
       <br />
     </div>
-    <button class="submit-button" type="submit">Register</button>
+    <button class="submit-button" type="submit" 
+    disabled={!isValid}
+    >Register</button>
   </form>
+  <a href="/login" className="optional ">Existing User? Sign In</a>
 </div>
 
 

@@ -28,7 +28,7 @@ const Profile = () => {
 
     const fetchProfile = async () => {
       try {
-        const response = await fetch("http://localhost:8001/profile", {
+        const response = await fetch("https://mainbackend.up.railway.app/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const Profile = () => {
 
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("http://localhost:8001/courses", {
+        const response = await axios.get("https://mainbackend.up.railway.app/courses", {
           headers: {
             Authorization: `Bearer ${token}`,
           },
@@ -100,7 +100,7 @@ const Profile = () => {
       setId(id + 1);
       try {
         const token = localStorage.getItem("token");
-        await fetch("http://localhost:8001/save-current-state", {
+        await fetch("https://mainbackend.up.railway.app/save-current-state", {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -127,12 +127,11 @@ const Profile = () => {
     <div className="body41">
       <div className="profile-container">
         <h1 className="profile-title">Profile</h1>
-        <p className="profile-info"><strong className="profile-label">First Name:</strong> {userData.firstname}</p>
-        <p className="profile-info"><strong className="profile-label">Last Name:</strong> {userData.lastname}</p>
-        <p className="profile-info"><strong className="profile-label">Username:</strong> {userData.username}</p>
-        <p className="profile-info"><strong className="profile-label">Completed Courses:</strong> {completedcourses.join(", ")}</p>
+        <p className="profile-info"><strong className="profile-label">First Name :</strong> <span>{userData.firstname} {userData.lastname} </span> </p>
+        <p className="profile-info"><strong className="profile-label">Username &nbsp; :</strong> <span>{userData.username}</span></p>
+        
 
-        <h2 className="courses-title">Courses</h2>
+        <h2 className="courses-title">Course</h2>
         {error && <p className="error-message">Error: {error}</p>}
 
         {courses.length > 0 ? (

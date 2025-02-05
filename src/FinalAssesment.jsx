@@ -23,7 +23,7 @@ const FinalTest = () => {
       }
 
       try {
-        const response = await fetch("http://localhost:8001/finaltest", {
+        const response = await fetch("https://mainbackend.up.railway.app/finaltest", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -138,7 +138,7 @@ const FinalTest = () => {
         return;
       }
 
-      const response = await fetch("http://localhost:8001/save-result-again", {
+      const response = await fetch("https://mainbackend.up.railway.app/save-result-again", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -162,12 +162,18 @@ const FinalTest = () => {
   };
 
   if (loading) {
-    return <p>Loading test...</p>;
+    return <div className="body99"  > <div class="content">
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+    <div class="circle"></div>
+</div></div>
   }
 
   return (
     <>
       {isPopupVisible ? (
+        
         <div className="pop-con">
           <h3>Total Correct Answers: {correctAnswers}</h3>
           {isEligible ? (
@@ -180,8 +186,9 @@ const FinalTest = () => {
         </div>
       ) : (
         <div className="body111">
+          <br />
         <div className="test-container">
-<h1 className="test-heading">Test</h1>
+<h1 className="test-heading">Final Assesment</h1>
 {errorMessage && <p className="error-message" style={{ color: "red" }}>{errorMessage}</p>}
 {questions.length > 0 ? (
   <div className="questions-container">
@@ -215,8 +222,7 @@ const FinalTest = () => {
             <p>No questions available.</p>
           )}
 
-          <input
-          className="Take-Final-Assessment"
+          <input className="submit-button"
             type="button"
             value="Submit"
             disabled={!isSubmitEnabled}
@@ -237,6 +243,7 @@ const FinalTest = () => {
             </div>
           )}
         </div>
+        <br />
         </div>
       )}
     </>
