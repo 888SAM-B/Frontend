@@ -35,7 +35,7 @@ const FinalTest = () => {
         if (response.ok) {
           setQuestions(result);
           // Store indices of correct answers
-          const correctAnswersList = result.map((q) => q.options.indexOf(q.answer));
+          const correctAnswersList = result.map((q) => q.answer);
           setOriginalAnswers(correctAnswersList);
 
           // Initialize selectedAnswers to undefined for each question
