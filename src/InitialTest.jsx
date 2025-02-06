@@ -158,7 +158,8 @@ const InitialTest = () => {
       CSS
       <Progress pro={css}/>
       </button>
-      <button  className="onClick">{css>0?css>=100?"REVISIT":"  CONTINUE":"START"}</button>
+      <button  className="onClick"  onClick={(e)=>selectedCourse(e)} value={"CSS"}>{css>0?css>=100?"REVISIT":"  CONTINUE":"START"}
+      </button>
       </div>
       </div>
       
