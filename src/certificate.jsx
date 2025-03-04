@@ -1,6 +1,8 @@
+
 import React, { useEffect, useState } from 'react';
 import html2pdf from 'html2pdf.js';
 import place from './assets/place.png';
+import logo1 from '../public/logo1.png';
 import { useNavigate } from "react-router-dom";
 const Certificate = () => {
   const [course,setCourse]=useState("")
@@ -64,7 +66,6 @@ const Certificate = () => {
     element.style.height = '793px'; // A4 landscape height
     element.style.padding = '50px';
     element.style.border = '1px solid #ddd';
-    element.style.backgroundColor = '#fff';
     element.style.fontFamily = 'Arial, sans-serif';
     element.style.textAlign = 'center';
     element.style.boxSizing = 'border-box';
@@ -72,76 +73,72 @@ const Certificate = () => {
     element.style.flexDirection = 'column';
     element.style.justifyContent = 'space-between';
     element.style.alignItems = 'center';
-
+    
+    // ✅ Corrected Background Image Path (React public folder)
+    element.style.backgroundImage = "url('/certificatebg.png')"; 
+    element.style.backgroundSize = "cover";
+    element.style.backgroundPosition = "center";
+    element.style.backgroundRepeat = "no-repeat";
+  
     // Add certificate content
     element.innerHTML = `
-      <h2 style="text-align: center; font-size: 28px; font-weight: bold; margin-bottom: 20px;">
-        COURSE COMPLETION CERTIFICATE
-      </h2>
-      <p style="font-size: 18px; line-height: 1.8; margin: 20px 0; width: 80%;">
-        This is to certify that <strong>${userData.firstname} ${userData.lastname}</strong> has
-        successfully completed the <strong>${course}</strong> course provided by 
-        <strong>Decode Your Course - AI powered learning platform for programming </strong>. They have showcased exceptional commitment and a strong grasp of the concepts taught during the course. We extend our heartfelt congratulations and wish them success in their future endeavors.
+      
+      <p style="width: 80%;color:#000;line-height:2;margin-top:23%;font-size:20px;font-family: "Roboto Condensed", serif;text-align:justify;">
+        This is to certify that <strong style="font-size: 20px; color: #173446;">${userData.firstname.toUpperCase()} ${userData.lastname.toUpperCase()}</strong> has
+        successfully completed the <strong  style="font-size: 20px; color: #173446; ">${course.toUpperCase()}</strong> course provided by 
+        <strong  style="font-size: 20px; color: #173446; " >Decode Your Course - AI powered learning platform for programming </strong>. They have showcased exceptional commitment and a strong grasp of the concepts taught during the course. We extend our heartfelt congratulations and wish them success in their future endeavors.
       </p>
-      <img src="${place}" alt="Seal or Logo" width="150" style="margin-bottom: 20px;" />
-      <p style="font-size: 14px; color: #666; margin-top: 20px;">
-        Issued by <strong>Decode Your Course</strong> - Empowering Learners Everywhere
-      </p>
+     
+     
     `;
-
-    document.body.appendChild(element); // Temporarily add the element to the DOM
-
-    const options = {
-      margin: 0,
-      filename: 'certificate.pdf',
-      image: { type: 'jpeg', quality: 0.98 },
-      html2canvas: {
-        scale: 3,
-        useCORS: true,
-      },
-      jsPDF: { unit: 'px', format: [1122, 793], orientation: 'landscape' },
-    };
-
-    html2pdf()
-      .set(options)
-      .from(element)
-      .save()
-      .then(() => {
-        document.body.removeChild(element); // Remove the element after the PDF is downloaded
-      })
-      .catch((error) => {
-        console.error("Error generating PDF:", error);
-        document.body.removeChild(element); // Ensure cleanup even on error
-      });
+    
+    document.body.appendChild(element); // Append to DOM first
+  
+    // ✅ Wait for image to load before generating PDF
+    setTimeout(() => {
+      const options = {
+        margin: 0,
+        filename: 'certificate.pdf',
+        image: { type: 'jpeg', quality: 0.98 },
+        html2canvas: {
+          scale: 5,
+          useCORS: true,
+        },
+        jsPDF: { unit: 'px', format: [1122, 793], orientation: 'landscape' },
+      };
+  
+      html2pdf()
+        .set(options)
+        .from(element)
+        .save()
+        .then(() => {
+          document.body.removeChild(element); // Remove the element after the PDF is downloaded
+        })
+        .catch((error) => {
+          console.error("Error generating PDF:", error);
+          document.body.removeChild(element); // Ensure cleanup even on error
+        });
+    }, 500); // Small delay for rendering (not 10 sec!)
   };
+  
 
   return (
     <div className='mainCertificateContainer'>
       {/* Download Button */}
       <div className="certificatePreview">
-
         <h2
           className='certificate-title'
         >
-          COURSE COMPLETION CERTIFICATE
+          {/* COURSE COMPLETION CERTIFICATE */}
         </h2>
         <p className='certificate-text' >
-       
-  This is to certify that <strong>{userData.firstname} {userData.lastname}</strong> has successfully completed the <strong>{course}</strong> course provided by <strong>Decode Your Course - AI powered learning platform for programming</strong>. They have showcased exceptional commitment and a strong grasp of the concepts taught during the course. We extend our heartfelt congratulations and wish them success in their future endeavors.
-
-
+  This is to certify that <strong>{userData.firstname.toUpperCase()} {userData.lastname.toUpperCase()}</strong> has successfully completed the <strong>{course.toUpperCase()}</strong> course provided by <strong>Decode Your Course - AI powered learning platform for programming</strong>. They have showcased exceptional commitment and a strong grasp of the concepts taught during the course. We extend our heartfelt congratulations and wish them success in their future endeavors.
         </p>
-        <img
-          src={place}
-          alt="Seal or Logo"
-          style={{
-            marginBottom: "20px",
-          }}
-        />
+        
         <p
   className='certificateFooter'
         >
-          Issued by <strong>Decode Your Course</strong> - Empowering Learners Everywhere
+          {/* Issued by <strong>Decode Your Course</strong> - Empowering Learners Everywhere */}
         </p>
 
 
@@ -168,3 +165,4 @@ const Certificate = () => {
 };
 
 export default Certificate;
+
