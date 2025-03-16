@@ -101,7 +101,7 @@ const Register = () => {
               style={{ borderColor: isValid === false ? "red" : "" }}
               required
             />
-            <ul className="validation" style={{ fontSize: "14px", display: focus, fontSize: "16px" }}>
+            <ul className="validation1" style={{ fontSize: "14px", display: focus, fontSize: "16px" }}>
               <li style={{ color: password.length >= 8 ? "greenyellow" : "white" }}>
                 At least 8 characters
               </li>

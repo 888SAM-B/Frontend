@@ -2424,13 +2424,17 @@ font-size: 20px;
   }
 }
 
-.validation{
-  font-family: "Roboto Condensed", serif; 
+.validation1{
   list-style: none;
-  /* border: 1PX SOLID RED; */
   margin-bottom: -40px;
 }
 
 }
 
+.validation1{
+  font-family: "Roboto Condensed", serif; 
+  list-style: none;
+  line-height: 25px;
+  margin-bottom: -40px;
 
+}
