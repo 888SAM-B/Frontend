@@ -7,7 +7,10 @@
 
 body{
   all: unset;
-  background: radial-gradient(ellipse at bottom, #213041 0%, #20282e 100%);
+  /* background: radial-gradient(ellipse at bottom, #213041 0%, #20282e 100%); */
+  background-color: #000;
+
+  color: #fff;
 }
   
 .nav {
@@ -36,12 +39,11 @@ body{
   border-radius: 5px;
   color: #f4f4f4;
 }
- 
 .homeContainer{
   background: radial-gradient(ellipse at bottom, #243547 0%, #191F24 100%);
+  overflow-x: hidden;
+  
 }
-
- 
  .contentContainer {
   width: 100%;
   padding: 50px;
@@ -50,8 +52,6 @@ body{
   justify-content: space-between;
   align-items: center;
   text-align: center;
- 
-  
 }
 
 .contentText {
@@ -64,7 +64,6 @@ body{
   font-weight: bold;
   font-family: "Roboto Condensed", serif;
   font-optical-sizing: auto;
-
 }
 
 .contentImage {
@@ -73,13 +72,11 @@ body{
   height: auto;
   margin-top: 30px;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
 }
 
 .contentImage:hover {
   transform: scale(1.1); 
   z-index: 10; 
-
 }
 .featuresGrid {
   display: grid;
@@ -225,7 +222,6 @@ body{
   width: 70%;
   padding: 10px 15px;
   font-size: 16px;
-  
   color: #ffffff;
   background-color: #D91656;
   border: none;
@@ -269,6 +265,7 @@ text-align: center;
 display: flex;
 align-items: center;
 justify-content: center;
+
 gap: 110px;
 
 }
@@ -301,8 +298,8 @@ textarea:focus {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 30px 0px;
   min-height: 100vh;
+  padding: 20px;
   background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
 }
 
@@ -423,12 +420,6 @@ textarea:focus {
   font-family: "Hedvig Letters Sans", serif;
   font-weight: bold;
   letter-spacing: 1.4px;
-  display: flex;
-  align-items: center;
-}
-.profile-info strong{
-  /* border: 1px solid; */
-  width: 130px;
 }
 
 .profile-label {
@@ -515,6 +506,7 @@ textarea:focus {
   font-family: "Roboto", serif;
   font-optical-sizing: auto;
   font-weight: 500;
+  text-align: left;
 }
 
 .course-button {
@@ -553,7 +545,7 @@ textarea:focus {
 }
 
 .course-button:disabled {
-  background: #e2e8f04d;
+  background: #e2e8f064;
   cursor: not-allowed;
   opacity: 0.7;
 }
@@ -574,6 +566,14 @@ textarea:focus {
   font-size: 1.1rem;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
+
+
+
+
+
+
+
+
 
 .certificatePreview {
   width: 70%; /* A4 landscape width */
@@ -608,6 +608,91 @@ textarea:focus {
   color: #665;
   margin-top: 20px;
 }
+
+
+
+.certificatePreview {
+  width: 70%; /*A4 landscape width*/
+  height: 90%; /* A4 landscape height */
+  /* padding: 50px; */
+  background-color: #fff;
+  font-family: Arial, sans-serif;
+  text-align: center;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  justify-content: space-between;
+  align-items: center;
+  /* background-image: url("https://img.freepik.com/premium-vector/blue-gold-geometry-modern-certificate-border-frame_257504-424.jpg"); */
+  /* background-image: url("https://www.canva.com/design/DAGgxeg79qk/7r1EndUMUMpkTzDnN-Ef1g/edit?utm_content=DAGgxeg79qk&utm_campaign=designshare&utm_medium=link2&utm_source=sharebutton"); */
+  background-image: url('../public/certificate.jpg');
+  background-size: contain;
+  background-position: center;
+  font-family: "Roboto Condensed", serif;
+  font-size: 18px;
+}
+.certificate-text {
+  line-height: 2;
+}
+.mainCertificateContainer {
+width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  background-color: #dee5e9;
+}
+.certificate-text{
+/* border: 1px solid red; */
+width: 80%;
+margin-top: -10%;
+/* margin-left: 12%; */
+}
+.certificateFooter {
+  font-size: 18px;
+  color: #000; 
+  margin-top: -8.88%;
+}
+
+.certificate-title{
+    font-size: 30px;
+    /* border: 1px solid red; */
+    margin-left: 12%;
+    color: #173446;
+}
+
+.logocon {
+top: 19px;
+background-color: transparent;
+}
+
+.logo {
+width: 80px;
+height: 80px;
+border-radius: 50%;
+box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+}
+.certificatePreview img{
+width: 10%;
+position: relative;
+left: 41.20%;
+top: 5.8%;
+}
+
+.mainCertificateContainer strong{
+  font-family: "Roboto Condensed", serif;
+  font-size: 20px;
+    color: #173446;
+}
+.cir-con{
+color: #f8f5f5;
+font-size: 20px;
+}
+
+
+
 
 
 
@@ -762,7 +847,7 @@ textarea:focus {
 }
 
 .submit-button:disabled {
-  background-color: #cbd5e073;
+  background-color: #cbd5e0aa;
   cursor: not-allowed;
   opacity: 0.7;
 }
@@ -1030,7 +1115,7 @@ textarea:focus {
 
 
 .body55 {
-  /* min-height: 100vh;    */
+  min-height: 100vh;
   background: radial-gradient(ellipse at bottom, #243547 0%, #191F24 100%);
   padding: 3rem 1rem;
   font-family: "Hedvig Letters Sans", serif;
@@ -1068,7 +1153,6 @@ textarea:focus {
   color: #ffffff;
   margin-bottom: 1rem;
   font-weight: 500;
-  text-align: center;
 }
 
 
@@ -1097,7 +1181,6 @@ textarea:focus {
   align-items: center;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
-  /* border: 1px solid white; */
 }
 
 .courseName:hover {
@@ -1217,20 +1300,15 @@ textarea:focus {
   box-shadow: rgba(0, 0, 0, 0.15) 0px 2px 8px;
   text-align: center;
   min-height: 40px;
-  /* border: 5px solid white; */
  
 }
 
 
-
-
-
-
-@media (max-width: 480px) {
+@media (max-width: 700px) {
   
   .body41 {
     padding: 1rem;
-    /* height: 130vh; */
+    height: 130vh;
   }
 
   .profile-container {
@@ -1285,7 +1363,257 @@ textarea:focus {
 
   .course-content {
     font-size: 0.9rem;
-    margin-bottom: 1.5rem;
+    margin-bottom: 1.1rem;
+    text-align: left;
+  }
+
+  .course-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .error-message {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .no-courses {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 600px) {
+  
+  .body41 {
+    padding: 1rem;
+    height: 130vh;
+  }
+
+  .profile-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .profile-title {
+    font-size: 2.2rem;
+  }
+
+  .profile-card {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-info {
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+  }
+
+  .profile-label {
+    font-size: 1rem;
+    margin-right: 0.3rem;
+  }
+
+  .courses-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .courses-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .module-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .course-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-content {
+    font-size: 0.9rem;
+    margin-bottom: 1.1rem;
+    text-align: left;
+  }
+
+  .course-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .error-message {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .no-courses {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 500px) {
+  
+  .body41 {
+    padding: 1rem;
+    height: 130vh;
+  }
+
+  .profile-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .profile-title {
+    font-size: 2.2rem;
+  }
+
+  .profile-card {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-info {
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+  }
+
+  .profile-label {
+    font-size: 1rem;
+    margin-right: 0.3rem;
+  }
+
+  .courses-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .courses-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .module-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .course-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-content {
+    font-size: 0.9rem;
+    margin-bottom: 1.1rem;
+    text-align: left;
+  }
+
+  .course-button {
+    padding: 0.6rem 1rem;
+    font-size: 0.9rem;
+    width: 100%;
+    margin-bottom: 1rem;
+    margin-right: 0;
+  }
+
+  .error-message {
+    font-size: 0.9rem;
+    padding: 0.8rem;
+  }
+
+  .no-courses {
+    font-size: 0.9rem;
+    padding: 1.5rem;
+  }
+}
+
+
+
+
+@media (max-width: 480px) {
+  
+  .body41 {
+    padding: 1rem;
+    height: 130vh;
+  }
+
+  .profile-container {
+    padding: 1rem;
+    border-radius: 12px;
+  }
+
+  .profile-title {
+    font-size: 2.2rem;
+  }
+
+  .profile-card {
+    padding: 1rem;
+    border-radius: 10px;
+    margin-bottom: 1rem;
+  }
+
+  .profile-info {
+    font-size: 0.9rem;
+    letter-spacing: 0.8px;
+  }
+
+  .profile-label {
+    font-size: 1rem;
+    margin-right: 0.3rem;
+  }
+
+  .courses-title {
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+  }
+
+  .courses-container {
+    padding: 1rem;
+    border-radius: 10px;
+  }
+
+  .progress-text {
+    font-size: 0.9rem;
+    text-align: left;
+  }
+
+  .module-title {
+    font-size: 1.6rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .course-title {
+    font-size: 1.2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .course-content {
+    font-size: 0.9rem;
+    margin-bottom: 1.1rem;
+    text-align: left;
   }
 
   .course-button {
@@ -1391,7 +1719,7 @@ textarea:focus {
 @media only screen and (max-width: 480px) {
   .registration-container {
     width: 80%; 
-    padding: 15px; 
+    padding: 15px 25px; 
   }
 
   .form-heading {
@@ -1541,15 +1869,12 @@ textarea:focus {
   .first-three {
     flex-direction: column;
     gap: 1rem;
-    margin-bottom: -3px;
     position: relative;
     right: 13px;
   }
 
   .courseName {
-    width: 140%;
-    position: relative;
-    right: 40px;
+    width: 100%;
     padding: 1.2rem;
     font-size: 0.9rem;
   }
@@ -1757,7 +2082,100 @@ textarea:focus {
   }
 }
 
+
+
+.logocon {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start; 
+  padding: 15px 20px;
+  border-radius: 12px;
+  width: fit-content;
+  margin: 10px auto;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+
+}
+
+.logo {
+  width: 110px;
+  height: 110px;
+  object-fit: contain;
+  border-radius: 50%;
+  box-shadow: rgba(0, 0, 0, 0.17) 0px -23px 25px 0px inset, rgba(0, 0, 0, 0.15) 0px -36px 30px 0px inset, rgba(0, 0, 0, 0.1) 0px -79px 40px 0px inset, rgba(0, 0, 0, 0.06) 0px 2px 1px, rgba(0, 0, 0, 0.09) 0px 4px 2px, rgba(0, 0, 0, 0.09) 0px 8px 4px, rgba(0, 0, 0, 0.09) 0px 16px 8px, rgba(0, 0, 0, 0.09) 0px 32px 16px;
+} 
+
+
+
+@media (max-width: 480px) {
+  .logocon {
+    flex-direction: column; 
+    align-items: center;
+    text-align: center;
+    padding: 10px;
+    border-radius: 50%;  
+    border: 1px solid rgba(255, 255, 255, 0.252) ;
+  }
+  .logo {
+    width: 90px; 
+    height: 90px;
+    
+  } 
+}
+
+
+
+.footer-side {
+  background: #132230; 
+  text-align: center;   
+  padding: 1px;         
+  font-size: 18px;      
+  color: #ffffff;
+  font-family: "Roboto Condensed", serif;
+}
+.footer-side a {
+  color: #D91656;  
+ 
+  font-weight: bold; 
+  font-size: 18px;
+  padding: 7px;
+
+}
+
+.footer-side a:hover {
+  text-decoration: underline; 
+  color: #142c46;  
+  text-decoration: none; 
+}
+
+
+
+
+@media (max-width: 480px) {
+  .footer-side {
+    font-size: 12px; 
+    padding: 7px; 
+  }
+  .footer-side a {
+    font-size: 12px; 
+    padding: 5px; 
+  }
+}
+
+
+
+
+
+
+
+
+
+
 @media screen and (max-width:680px) {
+
+  body{
+    scale: 0.9;
+  }
   .mainCertificateContainer{
     width: 100%;
     height: 60vh;
@@ -1794,6 +2212,38 @@ textarea:focus {
     font-size: 8px;
   }
 }
+
+
+
+ .downloadbutton{
+  font-size: 1.1rem;
+  padding: 12px 25px;
+  border: none;
+  font-family: "Roboto Condensed", serif;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+  box-shadow: rgba(0, 0, 0, 0.12) 0px 1px 3px, rgba(0, 0, 0, 0.24) 0px 1px 2px;
+  transition: transform 0.2s ease-in-out;
+  background-color: #D91656;
+  color: #fff;
+}
+
+
+
+
+
+.downloadbutton:hover {
+  background-color: #0f213b;
+   transform: translateY(-5px); 
+  
+}
+
+.checkBox{
+  text-align: center;
+  
+}
 .onClick{
   background: linear-gradient(135deg, #192136, #1e2a3f);
   color: #fff;
@@ -1810,4 +2260,71 @@ textarea:focus {
   font-family: Roboto;
   color: #D91656;
   text-decoration: none;
+}
+.optional:visited{
+  font-family: Roboto;
+  color: #D91656;
+  text-decoration: none;
+}
+@media screen and (max-width:680px) {
+  .mainCertificateContainer{
+    width: 100%;
+    height: 100vh;
+    display: flex;
+    /* background-color: #007bff; */
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+  }
+  .certificatePreview{
+    height: 30%;
+    width: 60%;   
+    padding: 10px;
+  }
+  .certificate-text {
+    font-size: 6px;
+    line-height: 1.8;
+    margin-top: -15%;
+    width: 80%;
+  }
+  .certificate-title {
+    text-align: center;
+    font-size: 10px;
+    font-weight: bold;
+    /* margin-bottom: 20px; */
+  }  
+ /* border: 1px solid aqua; */
+  .certificatePreview strong{
+    font-size: 6px;
+  }
+}
+
+
+.checkBox{
+  margin-top: 50px;
+  /* color: #000;  */
+  font-family:"Roboto Condensed", serif;
+  letter-spacing: 0.5px;
+  line-height: 20px;
+}
+@media screen and (max-width:450px) {
+  .certificatePreview{
+    width: 80%;   
+    padding: 10px;
+  }
+  .certificate-text{
+    margin-top: -15%;
+  }
+  .checkBox{
+    margin-top: 10px;
+    /* font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; */
+    font-size: 12px;
+  }
+}
+
+.validation{
+  font-family: "Roboto Condensed", serif; 
+  list-style: none;
+  /* border: 1PX SOLID RED; */
+  margin-bottom: -40px;
 }

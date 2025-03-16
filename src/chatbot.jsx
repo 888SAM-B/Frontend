@@ -8,6 +8,7 @@ const ZapierChatbot = () => {
     script.type = "module";
     script.src =
       "https://interfaces.zapier.com/assets/web-components/zapier-interfaces/zapier-interfaces.esm.js";
+      
 
     // Append the script to the document head
     document.head.appendChild(script);
@@ -23,7 +24,7 @@ const ZapierChatbot = () => {
       {/* Zapier Chatbot Embed */}
       <zapier-interfaces-chatbot-embed
         is-popup="true"
-        chatbot-id="cm6gfxshc000xgop75m4rfpgt"
+        chatbot-id="cm7htgo1t0031k0irmr7tf2oo"
       ></zapier-interfaces-chatbot-embed>
     </div>
   );

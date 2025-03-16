@@ -1,42 +1,72 @@
-import React from 'react';
+import React,{useRef} from 'react';
 import { useNavigate } from 'react-router-dom';
+import emailjs from "@emailjs/browser";
 const ContactForm = () => {
+    const form = useRef(null); // Define useRef
+    const sendEmail = (e) => {
+        e.preventDefault();
+        emailjs
+          .sendForm('service_ihs0yzk', 'template_leow3di', form.current, {
+            publicKey: 'mDfW_MHW22rBXKPgJ',
+          })
+          .then(
+            () => {
+              alert('Message sent successfully');
+            },
+            (error) => {
+             console.log(error)
+              alert('Message sent');
+            },
+          );
+      };
+
     return (
-      <div className="main">
-      <div className="form-container">
-          <form>
-              <div className="form-group">
-                  <input class="i1" placeholder=" " type="text" id="name" required />
-                  <label class="l1" htmlFor="name">Name</label>
-              </div>
-              <div className="form-group">
-                  <input class="i1" placeholder=" " type="email" id="email" required />
-                  <label class="l1" htmlFor="email">Email</label>
-              </div>
-              <div className="form-group">
-     <textarea className="texta1" placeholder=" COMMENTS" id="comments" required></textarea>
-    
-</div>
+        <div className="main">
+            <div className="form-container">
+                <form  ref={form} onSubmit={sendEmail}>
+                    <div className="form-group">
+                        <input class="i1" placeholder=" " name="to_name" type="text" id="name" required />
+                        <label class="l1" htmlFor="name" >Name</label>
+                    </div>
+                    <div className="form-group">
+                        <input class="i1" placeholder=" " type="email"  name='from_name' id="email" required />
+                        <label class="l1" htmlFor="email">Email</label>
+                    </div>
+                    <div className="form-group">
+                        <textarea className="texta1" placeholder=" COMMENTS" id="comments" name='message' required></textarea>
 
-              <button type="submit" className="form-button">Submit</button>
-          </form>
-      </div>
+                    </div>
 
-      <div className="im">
-          <img src="/freepik__background__33528.png" alt="" />
-      </div>
-  </div>
+                    <input type="submit" className="form-button" value="Submit"/>
+                </form>
+            </div>
+
+            <div className="im">
+                <img src="/freepik__background__33528.png" alt="" />
+            </div>
+        </div>
     );
 };
 
 const App = () => {
-    const navigate=useNavigate();
+    const navigate = useNavigate();
     return (
         <div className="homeContainer">
-            <div className="heroSection"></div>
+            <br />
 
+
+
+
+            <div className="heroSection"></div>
+ 
             <div className="contentContainer">
                 <p className="contentText">
+                    <div className='logocon'>
+
+                        <img className='logo' src="DYC.png" alt="" />
+
+
+                    </div>
                     <h1 className="homeTitle">WELCOME TO DECODE YOUR COURSE</h1>
                     Coding has become a crucial literacy skill for the present and future generations. It’s natural to wonder about the benefits of learning a new skill and its practical advantages.
                     <br /><br />
@@ -66,18 +96,32 @@ const App = () => {
             <br />
 
             <div className="buttonContainer">
-                <button className="loginButton" 
-                onClick={()=>navigate("/login")}
+                <button className="loginButton"
+                    onClick={() => navigate("/login")}
                 >LOGIN</button>
                 <button className="registerButton"
-                onClick={()=>navigate("/register")}
+                    onClick={() => navigate("/register")}
                 >REGISTER</button>
             </div>
 
             <br /><br /><br />
 
             <ContactForm />
+
+            <div className='footer-side'>
+                <footer >
+                    <p>Designed and Developed by
+                        <a href="https://bsamportfolio.netlify.app" >Sam</a> and
+                        <a href="https://dharunssportfolio.netlify.app">Dharun</a>
+                    </p>
+                </footer>
+
+
+            </div>
         </div>
+
+
+
     );
 };
 

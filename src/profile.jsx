@@ -96,7 +96,7 @@ const Profile = () => {
       setContentId(contentId + 1); // Move content forward
     }
 
-    if (id < courses.length - 1) { // Update progress only when moving forward
+    if (id < courses.length - 1 && contentId==id){ // Update progress only when moving forward
       setId(id + 1);
       try {
         const token = localStorage.getItem("token");
@@ -129,7 +129,7 @@ const Profile = () => {
         <h1 className="profile-title">Profile</h1>
         <p className="profile-info"><strong className="profile-label">First Name :</strong> <span>{userData.firstname} {userData.lastname} </span> </p>
         <p className="profile-info"><strong className="profile-label">Username &nbsp; :</strong> <span>{userData.username}</span></p>
-        
+
 
         <h2 className="courses-title">Course</h2>
         {error && <p className="error-message">Error: {error}</p>}
@@ -155,7 +155,7 @@ const Profile = () => {
             </button>
 
             <button
-             className="Take-Final-Assessment"  style={{ display: (id === courses.length - 1 && !(completedcourses.includes(course))) ? "inline" : "none" }}
+              className="Take-Final-Assessment" style={{ display: (id === courses.length - 1 && !(completedcourses.includes(course))) ? "inline" : "none" }}
               onClick={() => navigate("/final-assesment")}
             >
               Take Final Assessment
@@ -169,8 +169,8 @@ const Profile = () => {
             </button>
           </div>
         ) : (
-        <p></p>
-        )};
+          <p></p>
+        )}
       </div>
       <Chatbot />
     </div>

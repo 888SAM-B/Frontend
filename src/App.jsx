@@ -10,6 +10,8 @@ import Certificate from './certificate'
 import FinalTest from './FinalAssesment'
 import Loading from './loading'
 import Chatbot from './chatbot'
+import FullscreenLock from './FullscreenLock'
+import FullscreenButton from './FullscreenButton'
 function App() {
   return (
    <div>
@@ -24,6 +26,8 @@ function App() {
         <Route path="/final-assesment" element={<FinalTest/>}/>
         <Route path="/chat" element={<Chatbot/>}/>
         <Route path="/load" element={<Loading/>}/>
+        <Route path="/fs" element={<FullscreenLock/>}/>
+        <Route path="/fsb" element={<FullscreenButton/>}/>
       </Routes>
     </div>
   )
