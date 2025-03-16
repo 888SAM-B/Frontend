@@ -4,9 +4,9 @@ import "./FinalAssessmentRules.css"; // Import the CSS file for styling
 const FinalAssessmentRules = () => {
   return (
     <div className="rule-body">
-      <div className="container">
+      <div className="container1">
         <h2 className="title">📜 Final Assessment Rules & Regulations</h2>
-        <div className="table-container">
+        <div className="table-container1">
           <table className="rules-table">
             <thead className="table-header">
               <tr className="header-row">

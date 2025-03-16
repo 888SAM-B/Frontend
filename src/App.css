@@ -1181,6 +1181,7 @@ font-size: 20px;
   align-items: center;
   box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
   box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+  
 }
 
 .courseName:hover {
@@ -1870,13 +1871,16 @@ font-size: 20px;
     flex-direction: column;
     gap: 1rem;
     position: relative;
-    right: 13px;
+    /* right: 13px; */
+    width: 80%;
+    /* border: 1px solid aqua; */
   }
 
   .courseName {
-    width: 100%;
+    /* width: 100%; */
     padding: 1.2rem;
     font-size: 0.9rem;
+    
   }
 
   .courseName:hover {
@@ -2245,7 +2249,8 @@ font-size: 20px;
   
 }
 .onClick{
-  background: linear-gradient(135deg, #192136, #1e2a3f);
+  /* background: linear-gradient(135deg, #192136, #1e2a3f); */
+  background-color: #2c3c4e;
   color: #fff;
   width: 80%;
   border: none;
@@ -2255,6 +2260,9 @@ font-size: 20px;
   margin-top: 10px;
   cursor: pointer;
   /* display: none; */
+}
+.onClick:hover{
+  background-color:#D91656;
 }
 .optional{
   font-family: Roboto;
