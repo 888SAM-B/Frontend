@@ -47,7 +47,7 @@ const Login = () => {
         <h1 class="form-heading"  >Login</h1>
         <form onSubmit={handleSubmit}>
           <div class="input-group personal-info">
-            <label class="input-label"   >Username: </label>
+            <label class="input-label"   >Username ( E-mail ) : </label>
             <input class="input-field firstname"
               type="text"
               value={userName}
