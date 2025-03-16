@@ -1871,9 +1871,8 @@ font-size: 20px;
     flex-direction: column;
     gap: 1rem;
     position: relative;
-    right: 13px;
-    width: 80%;
-    border: 1px solid aqua;
+    /* left: 2px; */
+    /* border: 1px solid aqua; */
   }
 
   .courseName {
@@ -1956,7 +1955,7 @@ font-size: 20px;
     flex-direction: row;
     gap: 1.5rem;
     position: relative;
-    right: 5px;
+    /* right: 5px; */
   }
 
   .courseName {
@@ -2034,7 +2033,7 @@ font-size: 20px;
     flex-direction: column;
     gap: 1rem;
     position: relative;
-    right: 10px;
+    /* right: 10px; */
   }
 
   .courseName {
