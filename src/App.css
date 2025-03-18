@@ -1760,7 +1760,7 @@ font-size: 20px;
   }
 
   .question-title {
-    font-size: 20px;
+    font-size: 17px;
   }
 
   .option-label {
@@ -1810,12 +1810,12 @@ font-size: 20px;
   }
 
   .question-title {
-    font-size: 18px;
+    font-size: 17px;
   }
 
   .option-label {
     padding: 8px;
-    font-size: 13px;
+    font-size: 12px;
   }
 
   .option-input {
