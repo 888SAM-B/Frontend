@@ -24,7 +24,7 @@ const InitialTest = () => {
         return;
       }
       try {
-        const response = await fetch("https://mainbackend.up.railway.app/profile", {
+        const response = await fetch("https://mainbackend-859c.onrender.com/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -66,7 +66,7 @@ const InitialTest = () => {
     setCourse(selectedValue);
 
     try {
-      const response = await fetch("https://mainbackend.up.railway.app/update-course", {
+      const response = await fetch("https://mainbackend-859c.onrender.com/update-course", {
       // const response = await fetch("http://localhost:8001/update-course", {
         method: "POST",
         headers: {

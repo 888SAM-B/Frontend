@@ -26,7 +26,7 @@ const FinalTest = () => {
       }
 
       try {
-        const response = await fetch("https://mainbackend.up.railway.app/finaltest", {
+        const response = await fetch("https://mainbackend-859c.onrender.com/finaltest", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const FinalTest = () => {
         return;
       }
 
-      const res = await fetch("https://mainbackend.up.railway.app/complete", {
+      const res = await fetch("https://mainbackend-859c.onrender.com/complete", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -165,7 +165,7 @@ const FinalTest = () => {
         return;
       }
 
-      const response = await fetch("https://mainbackend.up.railway.app/save-result-again", {
+      const response = await fetch("https://mainbackend-859c.onrender.com/save-result-again", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

@@ -15,7 +15,7 @@ const Register = () => {
     event.preventDefault();
     const data = { firstname, lastname, username, password };
     try {
-      const response = await fetch("https://mainbackend.up.railway.app/register", {
+      const response = await fetch("https://mainbackend-859c.onrender.com/register", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
