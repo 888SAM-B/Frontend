@@ -63,7 +63,7 @@ const Certificate = () => {
     // Create a dynamic container for the certificate
     const element = document.createElement('div');
     element.style.width = '1122px'; // A4 landscape width
-    element.style.height = '793px'; // A4 landscape height
+    element.style.height = '790px'; // A4 landscape height
     element.style.padding = '50px';
     element.style.border = '1px solid #ddd';
     element.style.fontFamily = 'Arial, sans-serif';
