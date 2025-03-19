@@ -104,7 +104,7 @@ const Certificate = () => {
           scale: 5,
           useCORS: true,
         },
-        jsPDF: { unit: 'px', format: [1122, 793], orientation: 'landscape' },
+        jsPDF: { unit: 'px', format: [1120, 790], orientation: 'landscape' },
       };
   
       html2pdf()
