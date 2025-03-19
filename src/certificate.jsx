@@ -23,7 +23,7 @@ const Certificate = () => {
   
     const fetchProfile = async () => {
       try {
-        const response = await fetch("https://mainbackend.up.railway.app/profile", {
+        const response = await fetch("https://mainbackend-859c.onrender.com/profile", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
