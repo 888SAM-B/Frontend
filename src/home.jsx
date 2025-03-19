@@ -111,8 +111,8 @@ const App = () => {
             <div className='footer-side'>
                 <footer >
                     <p>Designed and Developed by
-                        <a href="https://bsamportfolio.netlify.app" >Sam</a> and
-                        <a href="https://dharunssportfolio.netlify.app">Dharun</a>
+                        <a href="https://bsamportfolio.netlify.app" >Sam B</a> and
+                        <a href="https://dharunssportfolio.netlify.app">Dharun S S</a>
                     </p>
                 </footer>
 
