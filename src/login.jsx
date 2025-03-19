@@ -58,7 +58,7 @@ const Login = () => {
           </div>
           
           <div class="input-group password-info"  >
-            <label class="input-label"    >Password: </label>
+            <label class="input-label"    >Password : </label>
             <input class="input-field firstname"
               type="password"
               value={userPassword}
