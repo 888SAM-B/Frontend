@@ -20,7 +20,7 @@ const Test = () => {
       }
 
       try {
-        const response = await fetch("https://mainbackend-859c.onrender.com/test", {
+        const response = await fetch("https://mainbackend.up.railway.app/test", {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -81,7 +81,7 @@ const Test = () => {
   const init = async (currentWilling) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://mainbackend-859c.onrender.com/save-results", {
+      const response = await fetch("https://mainbackend.up.railway.app/save-results", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

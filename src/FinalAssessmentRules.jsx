@@ -1,5 +1,5 @@
 import React from "react";
-import "./FinalAssessmentRules.css"; // Import the CSS file for styling
+import "./Final3AssessmentRules.css"; // Import the CSS file for styling
 
 const FinalAssessmentRules = () => {
   return (
