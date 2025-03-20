@@ -112,7 +112,7 @@ const App = () => {
                 <footer >
                     <p>Designed and Developed by
                         <a href="https://bsamportfolio.netlify.app" >Sam B</a> and
-                        <a href="https://dharunssportfolio.netlify.app">Dharun S S</a>
+                        <a href="https://dharun-coder.netlify.app">Dharun S S</a>
                     </p>
                 </footer>
 
