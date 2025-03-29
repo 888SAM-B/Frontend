@@ -166,9 +166,7 @@ const Certificate = () => {
         Download Certificate
       </button>
 
-      <button>
-        Completed courses {userData.completed}
-      </button>
+      
     </div>
   );
 };

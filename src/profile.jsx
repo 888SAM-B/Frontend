@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import Chatbot from './chatbot';
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
-
+const url=import.meta.env.VITE_URL
 const Profile = () => {
   const [userData, setUserData] = useState({
     firstname: "",
@@ -72,7 +72,7 @@ const Profile = () => {
           },
         });
         setCourses(response.data || []);
-      }  catch(error){
+      }  catch(err){
           setError(err.message);
         }
     };
