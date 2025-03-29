@@ -28,7 +28,7 @@ const Profile = () => {
 
     const fetchProfile = async () => {
       try {
-        const response = await fetch("https://mainbackend-859c.onrender.com/profile", {
+        const response = await fetch(`${url}/profile`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -58,23 +58,23 @@ const Profile = () => {
         } else {
           alert(result.message);
         }
-      } catch (error) {
-        console.error("Error fetching profile:", error);
+      }catch(error){
+          console.error("Error fetching profile:", error);
         alert("Something went wrong!");
-      }
+        }
     };
 
     const fetchCourses = async () => {
       try {
-        const response = await axios.get("https://mainbackend-859c.onrender.com/courses", {
+        const response = await axios.get(`${url}/courses`, {
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
         setCourses(response.data || []);
-      } catch (err) {
-        setError(err.message);
-      }
+      }  catch(error){
+          setError(err.message);
+        }
     };
 
     fetchCourses();
@@ -100,7 +100,7 @@ const Profile = () => {
       setId(id + 1);
       try {
         const token = localStorage.getItem("token");
-        await fetch("https://mainbackend-859c.onrender.com/save-current-state", {
+        await fetch(`${url}/save-current-state`, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
@@ -110,10 +110,10 @@ const Profile = () => {
             currentstate: id + 1,
           }),
         });
-      } catch (error) {
-        console.error("Error saving results:", error);
+      } catch(error){
+          console.error("Error saving results:", error);
         alert("Error saving results.");
-      }
+        }
     }
   };
 
@@ -131,7 +131,7 @@ const Profile = () => {
         <p className="profile-info"><strong className="profile-label">Username &nbsp; :</strong> <span>{userData.username}</span></p>
 
 
-        <h2 className="courses-title">Course</h2>
+        <h2 className="courses-title">Course : {course} </h2>
         {error && <p className="error-message">Error: {error}</p>}
 
         {courses.length > 0 ? (

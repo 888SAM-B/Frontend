@@ -1,5 +1,5 @@
-  import React, { useEffect, useState } from "react";
-
+import React, { useEffect, useState } from "react";
+const url=import.meta.env.VITE_URL
 const Test = () => {
   const [questions, setQuestions] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -20,7 +20,7 @@ const Test = () => {
       }
 
       try {
-        const response = await fetch("https://mainbackend-859c.onrender.com/test", {
+        const response = await fetch(`${url}/test`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -36,8 +36,8 @@ const Test = () => {
         } else {
           setErrorMessage(result.message || "Failed to fetch questions.");
         }
-      } catch (error) {
-        console.error("Error fetching questions:", error);
+      } catch(error){
+          console.error("Error fetching questions:", error);
         setErrorMessage("Something went wrong!");
       } finally {
         setLoading(false);
@@ -81,7 +81,7 @@ const Test = () => {
   const init = async (currentWilling) => {
     try {
       const token = localStorage.getItem("token");
-      const response = await fetch("https://mainbackend-859c.onrender.com/save-results", {
+      const response = await fetch(`${url}/save-results`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -101,8 +101,8 @@ const Test = () => {
       } else {
         alert(`Failed to save results: ${result.message}`);
       }
-    } catch (error) {
-      console.error("Error saving results:", error);
+    } catch(error){
+        console.error("Error saving results:", error);
       alert("Error saving results.");
     }
   };

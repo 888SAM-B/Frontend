@@ -1295,7 +1295,7 @@ font-size: 20px;
   margin-bottom: 10px;
   transition: transform 0.3s ease-in-out;
   position: relative;
-  left: 7px;
+  /* left: 7px; */
 }
 
 
@@ -1327,7 +1327,7 @@ font-size: 20px;
   
   .body41 {
     padding: 1rem;
-    height: 130vh;
+    /* height: 130vh; */
   }
 
   .profile-container {
@@ -1409,7 +1409,7 @@ font-size: 20px;
   
   .body41 {
     padding: 1rem;
-    height: 130vh;
+    /* height: 130vh; */
   }
 
   .profile-container {
@@ -1491,7 +1491,7 @@ font-size: 20px;
   
   .body41 {
     padding: 1rem;
-    height: 130vh;
+    /* height: 130vh; */
   }
 
   .profile-container {
@@ -1576,7 +1576,7 @@ font-size: 20px;
   
   .body41 {
     padding: 1rem;
-    height: 130vh;
+    /* height: 130vh; */
   }
 
   .profile-container {

@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Progress from "./progress";
+const url=import.meta.env.VITE_URL
 const InitialTest = () => {
   const [course, setCourse] = useState("");
   const [errorMessage, setErrorMessage] = useState("");
@@ -23,29 +24,35 @@ const InitialTest = () => {
         console.error("No token found. Please log in.");
         return;
       }
+      let response={}
+      let result={}
       try {
-        const response = await fetch("https://mainbackend-859c.onrender.com/profile", {
+        response = await fetch(`${url}/profile`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
           },
         });
-        const result = await response.json();
-
-        if (response.ok) {
-          setJavaProgress(Math.round((result.user.java / (result.user.javaprogress - 2)) * 100));
-          setPythonProgress(Math.round((result.user.python / (result.user.pythonprogress - 2)) * 100));
-          setJsProgress(Math.round((result.user.js / (result.user.jsprogress - 2)) * 100));
-          setHtmlProgress(Math.round((result.user.html / (result.user.htmlprogress - 2)) * 100));
-          setCssProgress(Math.round((result.user.css / (result.user.cssprogress - 2)) * 100));
-          setName(result.user.firstname)
-
-        } else {
-          console.error("Error fetching profile:", result.message);
-        }
-      } catch (error) {
-        console.error("Error fetching profile:", error);
+        result = await response.json();
+        console.log("initial-test01:railways")
+        
+      } catch(error){
+          console.error("Error fetching profile:", error);
         alert("Something went wrong!");
+        }
+      
+
+
+      if (response.ok) {
+        setJavaProgress(Math.round((result.user.java / (result.user.javaprogress - 2)) * 100));
+        setPythonProgress(Math.round((result.user.python / (result.user.pythonprogress - 2)) * 100));
+        setJsProgress(Math.round((result.user.js / (result.user.jsprogress - 2)) * 100));
+        setHtmlProgress(Math.round((result.user.html / (result.user.htmlprogress - 2)) * 100));
+        setCssProgress(Math.round((result.user.css / (result.user.cssprogress - 2)) * 100));
+        setName(result.user.firstname)
+
+      } else {
+        console.error("Error fetching profile:", result.message);
       }
     };
 
@@ -64,9 +71,10 @@ const InitialTest = () => {
     if (!selectedValue) return; // Prevent empty selections
 
     setCourse(selectedValue);
-
+    let response={}
+    let result={}
     try {
-      const response = await fetch("https://mainbackend-859c.onrender.com/update-course", {
+      response = await fetch(`${url}/update-course`, {
       // const response = await fetch("http://localhost:8001/update-course", {
         method: "POST",
         headers: {
@@ -76,25 +84,45 @@ const InitialTest = () => {
         body: JSON.stringify({ course: selectedValue }),
       });
 
-      const result = await response.json();
-
-      if (response.ok) {
-        setSuccessMessage(result.message);
-        setSelectedcourses(result.user.selectedcourses)
-        let course1 = (result.user.course).length > 7 ? result.user.course.slice(8) : result.user.course
-        if (Array.isArray(result.user.selectedcourses) &&
-          result.user.selectedcourses.includes(course1.toUpperCase())) {
-          navigate("/profile"); // Replaced "/profile" with "/course-page"
-        } else {
-          navigate("/test");
-        }
-      } else {
-        setErrorMessage(result.message || "Failed to update the course.");
-      }
+      result = await response.json();
+      console.log("initial-test-02:railways")
+      
     } catch (error) {
-      console.error("Error:", error);
-      setErrorMessage("Something went wrong!");
 
+      try{
+        response = await fetch(`${url}/update-course`, {
+          // const response = await fetch("http://localhost:8001/update-course", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+              Authorization: `Bearer ${token}`,
+            },
+            body: JSON.stringify({ course: selectedValue }),
+          });
+    
+          result = await response.json();
+          console.log("initial-test-02:onrender")
+      }
+      catch(error){
+        console.error("Error:", error);
+        setErrorMessage("Something went wrong!");
+      }
+
+
+      
+    }
+    if (response.ok) {
+      setSuccessMessage(result.message);
+      setSelectedcourses(result.user.selectedcourses)
+      let course1 = (result.user.course).length > 7 ? result.user.course.slice(8) : result.user.course
+      if (Array.isArray(result.user.selectedcourses) &&
+        result.user.selectedcourses.includes(course1.toUpperCase())) {
+        navigate("/profile"); // Replaced "/profile" with "/course-page"
+      } else {
+        navigate("/test");
+      }
+    } else {
+      setErrorMessage(result.message || "Failed to update the course.");
     }
   };
   

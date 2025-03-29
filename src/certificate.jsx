@@ -4,12 +4,14 @@ import html2pdf from 'html2pdf.js';
 import place from './assets/place.png';
 import logo1 from '../public/logo1.png';
 import { useNavigate } from "react-router-dom";
+const url=import.meta.env.VITE_URL
 const Certificate = () => {
   const [course,setCourse]=useState("")
   const [userData, setUserData] = useState({
     firstname: "",
     lastname: "",
     course: "",
+    completed:[],
   });
    const navigate = useNavigate();
 
@@ -23,7 +25,8 @@ const Certificate = () => {
   
     const fetchProfile = async () => {
       try {
-        const response = await fetch("https://mainbackend-859c.onrender.com/profile", {
+
+        const response = await fetch(`${url}/profile`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,16 +36,18 @@ const Certificate = () => {
         const result = await response.json();
   
         if (response.ok) {
+          console.log("railways")
           setUserData({
             firstname: result.user.firstname,
             lastname: result.user.lastname,
             course: result.user.course,
+            completed:result.user.completedcourses,
           });
         } else {
           alert(result.message);
         }
       } catch (error) {
-        console.error("Error fetching profile:", error);
+          console.error("Error fetching profile:", error);
         alert("Something went wrong!");
       }
     };
@@ -159,6 +164,10 @@ const Certificate = () => {
         }}
       >
         Download Certificate
+      </button>
+
+      <button>
+        Completed courses {userData.completed}
       </button>
     </div>
   );
