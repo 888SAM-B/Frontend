@@ -9,7 +9,7 @@ const FinalAssessmentRules = () => {
         <div className="table-container1">
           <table className="rules-table">
             <thead className="table-header">
-              <tr className="header-row">
+          <tr className="header-row">
                 <th className="header-cell">Category</th>
                 <th className="header-cell">Details</th>
               </tr>

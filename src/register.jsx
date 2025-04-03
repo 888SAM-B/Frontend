@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { Navigate } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
-
+const url=import.meta.env.VITE_URL
 
 const Register = () => {
   const [firstname, setFirstname] = useState("");
@@ -15,7 +15,7 @@ const Register = () => {
     event.preventDefault();
     const data = { firstname, lastname, username, password };
     try {
-      const response = await fetch("https://mainbackend-859c.onrender.com/register", {
+      const response = await fetch(`${url}/register`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -36,9 +36,9 @@ const Register = () => {
         const err = await response.json();
         alert(err.message);
       }
-    } catch (error) {
-      console.error("Error:", error);
-      alert("Something went wrong!");
+    }catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong!");
     }
   };
 

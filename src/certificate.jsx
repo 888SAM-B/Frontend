@@ -4,12 +4,14 @@ import html2pdf from 'html2pdf.js';
 import place from './assets/place.png';
 import logo1 from '../public/logo1.png';
 import { useNavigate } from "react-router-dom";
+const url=import.meta.env.VITE_URL
 const Certificate = () => {
   const [course,setCourse]=useState("")
   const [userData, setUserData] = useState({
     firstname: "",
     lastname: "",
     course: "",
+    completed:[],
   });
    const navigate = useNavigate();
 
@@ -23,7 +25,8 @@ const Certificate = () => {
   
     const fetchProfile = async () => {
       try {
-        const response = await fetch("https://mainbackend-859c.onrender.com/profile", {
+
+        const response = await fetch(`${url}/profile`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -33,16 +36,18 @@ const Certificate = () => {
         const result = await response.json();
   
         if (response.ok) {
+          console.log("railways")
           setUserData({
             firstname: result.user.firstname,
             lastname: result.user.lastname,
             course: result.user.course,
+            completed:result.user.completedcourses,
           });
         } else {
           alert(result.message);
         }
       } catch (error) {
-        console.error("Error fetching profile:", error);
+          console.error("Error fetching profile:", error);
         alert("Something went wrong!");
       }
     };
@@ -63,7 +68,7 @@ const Certificate = () => {
     // Create a dynamic container for the certificate
     const element = document.createElement('div');
     element.style.width = '1122px'; // A4 landscape width
-    element.style.height = '793px'; // A4 landscape height
+    element.style.height = '790px'; // A4 landscape height
     element.style.padding = '50px';
     element.style.border = '1px solid #ddd';
     element.style.fontFamily = 'Arial, sans-serif';
@@ -75,7 +80,7 @@ const Certificate = () => {
     element.style.alignItems = 'center';
     
     // ✅ Corrected Background Image Path (React public folder)
-    element.style.backgroundImage = "url('/certificatebg.png')"; 
+    element.style.backgroundImage = "url('/certificatebg1.png')"; 
     element.style.backgroundSize = "cover";
     element.style.backgroundPosition = "center";
     element.style.backgroundRepeat = "no-repeat";
@@ -160,6 +165,8 @@ const Certificate = () => {
       >
         Download Certificate
       </button>
+
+      
     </div>
   );
 };

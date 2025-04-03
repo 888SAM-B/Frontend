@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Await, useNavigate } from "react-router-dom";
 import FinalAssessmentRules from "./FinalAssessmentRules";
-
+const url=import.meta.env.VITE_URL
 const FinalTest = () => {
   const [questions, setQuestions] = useState([]);
   const [errorMessage, setErrorMessage] = useState("");
@@ -26,7 +26,7 @@ const FinalTest = () => {
       }
 
       try {
-        const response = await fetch("https://mainbackend.up.railway.app/finaltest", {
+        const response = await fetch(`${url}/finaltest`, {
           method: "GET",
           headers: {
             Authorization: `Bearer ${token}`,
@@ -122,7 +122,7 @@ const FinalTest = () => {
         return;
       }
 
-      const res = await fetch("https://mainbackend.up.railway.app/complete", {
+      const res = await fetch(`${url}/complete`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -165,7 +165,7 @@ const FinalTest = () => {
         return;
       }
 
-      const response = await fetch("https://mainbackend.up.railway.app/save-result-again", {
+      const response = await fetch(`${url}/save-result-again`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
