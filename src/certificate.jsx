@@ -12,6 +12,7 @@ const Certificate = () => {
     lastname: "",
     course: "",
     completed:[],
+    marks:"",
   });
    const navigate = useNavigate();
 
@@ -42,6 +43,7 @@ const Certificate = () => {
             lastname: result.user.lastname,
             course: result.user.course,
             completed:result.user.completedcourses,
+            marks:result.user.initial,
           });
         } else {
           alert(result.message);
@@ -126,8 +128,11 @@ const Certificate = () => {
     }, 500); // Small delay for rendering (not 10 sec!)
   };
   
-
+const disablepop=()=>{
+  document.getElementById('iq').style.display='none'
+}
   return (
+    <div className='certibody'>
     <div className='mainCertificateContainer'>
       {/* Download Button */}
       <div className="certificatePreview">
@@ -151,22 +156,20 @@ const Certificate = () => {
       <button
         onClick={()=>{
           downloadCertificate();
-          navigate("/initial-test")
-
+          alert(userData.marks)
+          // navigate("/initial-test")
         }}
-        style={{
-          padding: '10px 20px',
-          backgroundColor: '#007BFF',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '5px',
-          cursor: 'pointer',
-        }}
+        className='submit-button certificateDownload'
       >
         Download Certificate
       </button>
-
-      
+    </div>
+    <div className="iq" id="iq" style={{display:(userData.marks>=16)?'flex':'none'}}>
+      <div className="iqc">
+      <h1>Congratulations on achieving over 80% marks! <br /> Click the button below to claim your exclusive bonus  <br />   </h1>
+      <a href='Techical_Interview_FAQs_DYC.pdf' download onClick={disablepop}>Download</a>
+      </div>
+    </div>
     </div>
   );
 };

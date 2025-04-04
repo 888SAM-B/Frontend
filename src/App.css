@@ -369,6 +369,7 @@ textarea:focus {
   transition: background-color 0.3s ease;
   font-family: "Roboto Condensed", serif;
   transition: transform 0.2s ease-in-out;
+  text-decoration: none;
 }
 
 .submit-button:hover {
@@ -579,8 +580,8 @@ textarea:focus {
   width: 70%; /* A4 landscape width */
   height: 80%; /* A4 landscape height */
   padding: 50px;
-  border: 1px solid #ddd;
-  background-color: #fff;
+  
+  background-color:inherit;
   font-family: Arial, sans-serif;
   text-align: center;
   box-sizing: border-box;
@@ -588,6 +589,7 @@ textarea:focus {
   flex-direction: column;
   justify-content: space-between;
   align-items: center;
+  background-repeat:repeat-x;
 }
 .certificate-text{
   line-height: 2;
@@ -615,7 +617,7 @@ textarea:focus {
   width: 70%; /*A4 landscape width*/
   height: 90%; /* A4 landscape height */
   /* padding: 50px; */
-  background-color: #fff;
+  
   font-family: Arial, sans-serif;
   text-align: center;
   box-sizing: border-box;
@@ -683,7 +685,7 @@ top: 5.8%;
 
 .mainCertificateContainer strong{
   font-family: "Roboto Condensed", serif;
-  font-size: 20px;
+  /* font-size: 20px; */
     color: #173446;
 }
 .cir-con{
@@ -2300,7 +2302,7 @@ font-size: 20px;
   width: 70%; /*A4 landscape width*/
   height: 90%; /* A4 landscape height */
   /* padding: 50px; */
-  background-color: #fff;
+  
   font-family: Arial, sans-serif;
   text-align: center;
   box-sizing: border-box;
@@ -2320,21 +2322,21 @@ font-size: 20px;
 .certificate-text {
   line-height: 2;
 }
+.certibody{
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
+  overflow-y: hidden;
+}
 .mainCertificateContainer {
+  padding-top: 10px;
 width: 100%;
   height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  background-color: #dee5e9;
+  background: inherit
 }
-.certificate-text{
-/* border: 1px solid red; */
-width: 80%;
-margin-top: -10%;
-/* margin-left: 12%; */
-}
+
 .certificateFooter {
   font-size: 18px;
   color: #000; 
@@ -2496,3 +2498,73 @@ font-size: 20px;
     box-shadow: 0 0 0 2px rgba(139, 92, 246, 0.25);
   }
 }
+.iq{
+  background: radial-gradient(ellipse at bottom, #1B2735 0%, #191F24 100%);
+  height: 100vh;
+  overflow: hidden;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+  .iqc{
+    background: linear-gradient(135deg, #131b30, #1c213f, #1c244e);
+  display: flex;
+  border-radius: 40px;
+  flex-direction: column;  
+  /* height: 50vh; */
+  padding: 30px 20px;
+  width: 50%;
+  border: 1px solid rgba(240, 248, 255, 0.383);
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+}
+.iq h1{
+  
+  text-align: center;
+  width: 70%;
+  line-height:140%;
+  font-family: "Roboto Condensed", serif; 
+  font-size: 2vw;
+}
+.iq a{
+  background-color: #D91656;
+  text-decoration: none;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 1rem;
+  cursor: pointer;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+  font-family: "Roboto Condensed", serif;
+  transition: transform 0.2s ease-in-out;
+}
+.certificate-text{
+  /* border: 1px solid red; */
+  width: 80%;
+  margin-top: -10%;
+  font-size: 1.5vw;
+  /* margin-left: 12%; */
+  }
+  .certificate-text strong{
+    font-size: 1.5vw;
+  }
+  /* *{
+    border: 1px solid aqua;
+  } */
+  @media screen and (max-width:600px) {
+    .iqc{
+      width: 80%;
+    }
+    .iqc h1{
+      font-size: 5vw;
+    }
+    .iqc button{
+      font-size: 5vw;
+    }
+  }

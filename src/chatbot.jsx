@@ -24,7 +24,7 @@ const ZapierChatbot = () => {
       {/* Zapier Chatbot Embed */}
       <zapier-interfaces-chatbot-embed
         is-popup="true"
-        chatbot-id="cm8bo9cd0003cyilj6ru7x1vb"
+        chatbot-id="cm9305bc1009kwt0mfa62kf2j"
       ></zapier-interfaces-chatbot-embed>
     </div>
   );

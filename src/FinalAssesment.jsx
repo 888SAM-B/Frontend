@@ -14,7 +14,7 @@ const FinalTest = () => {
   const [isEligible, setEligible] = useState(false);
   const [time, setTime] = useState(1200); // 20 minutes in seconds
   const [isActive, setIsActive] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const fetchQuestions = async () => {
       const token = localStorage.getItem("token");
@@ -60,6 +60,8 @@ const FinalTest = () => {
   }, []);
 
 
+ 
+
   useEffect(() => {
     let timer;
     if (isActive && time > 0) {
@@ -80,7 +82,7 @@ const FinalTest = () => {
     return `${minutes}:${secs < 10 ? "0" : ""}${secs}`;
   };
 
-  const navigate = useNavigate();
+
 
   const handleOptionChange = (questionIndex, selectedOptionIndex) => {
     setSelectedAnswers((prevSelectedAnswers) => ({
@@ -122,13 +124,14 @@ const FinalTest = () => {
         return;
       }
 
-      const res = await fetch(`${url}/complete`, {
+      const res = await fetch(`http://localhost:5000/complete`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           // Corrected Authorization header
           Authorization: `Bearer ${token}`,
         },
+        body:JSON.stringify({correctAnswers}),
       });
 
       if (!res.ok) {
@@ -165,12 +168,13 @@ const FinalTest = () => {
         return;
       }
 
-      const response = await fetch(`${url}/save-result-again`, {
+      const response = await fetch(`http://localhost:5000/save-result-again`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
           Authorization: `Bearer ${token}`,
         },
+
       });
 
       const result = await response.json();
