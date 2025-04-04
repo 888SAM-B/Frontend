@@ -156,7 +156,7 @@ const disablepop=()=>{
       <button
         onClick={()=>{
           downloadCertificate();
-          alert(userData.marks)
+          
           // navigate("/initial-test")
         }}
         className='submit-button certificateDownload'
