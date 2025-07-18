@@ -108,6 +108,17 @@ const App = () => {
 
             <ContactForm />
 
+             <div className='footer-side'>
+                <footer >
+                    <p>Designed and Developed by
+                        <a href="mailto:ramyanusa@gmail.com" >Ramya V</a> 
+                      
+                    </p>
+                </footer>
+
+
+            </div>
+
            
         </div>
 
