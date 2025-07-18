@@ -111,8 +111,7 @@ const App = () => {
              <div className='footer-side'>
                 <footer >
                     <p>Designed and Developed by
-                        <a href="mailto:ramyanusa@gmail.com" >Ramya V</a> 
-                      
+                        <a href="mailto:ramyanusa@gmail.com" target="_blank" rel="noopener noreferrer">SAM B</a> 
                     </p>
                 </footer>
 
