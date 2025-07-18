@@ -82,7 +82,7 @@ const Certificate = () => {
     element.style.alignItems = 'center';
     
     // ✅ Corrected Background Image Path (React public folder)
-    element.style.backgroundImage = "url('/certificatebg1.png')"; 
+    element.style.backgroundImage = "url('/certificate001.png')"; 
     element.style.backgroundSize = "cover";
     element.style.backgroundPosition = "center";
     element.style.backgroundRepeat = "no-repeat";
