@@ -66,7 +66,7 @@ const App = () => {
                         <img className='logo' src="DYC.png" alt="" />
 
 
-                    </div>
+                    </div> 
                     <h1 className="homeTitle">WELCOME TO DECODE YOUR COURSE</h1>
                     Coding has become a crucial literacy skill for the present and future generations. It’s natural to wonder about the benefits of learning a new skill and its practical advantages.
                     <br /><br />
