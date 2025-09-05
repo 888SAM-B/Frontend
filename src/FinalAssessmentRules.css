@@ -1,0 +1,272 @@
+
+.rule-body{
+font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+/* background-color: #16191f; */
+margin: 0;
+padding: 0;
+display: flex;
+justify-content: center;
+align-items: center;
+/* min-height: 100vh; */
+color: #333;
+}
+
+/* .container1 {
+width: 90%;
+max-width: 800px;
+background-color: rgb(24, 40, 51);
+border-radius: 24px;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+padding: 30px;
+margin: 20px;
+}
+ */
+.title {
+text-align: center;
+color: #ffffff;
+margin-bottom: 30px;
+font-size: 30px;
+font-weight: 600;
+box-shadow: rgba(0, 0, 0, 0.4) 0px 2px 4px, rgba(0, 0, 0, 0.3) 0px 7px 13px -3px, rgba(0, 0, 0, 0.2) 0px -3px 0px inset;
+border-bottom: 2px solid #112e46;
+border-left: 2px solid #193844;
+border-radius: 4px;
+padding-bottom: 15px;
+}
+
+
+.table-container1 {
+overflow-x: auto;
+}
+
+.rules-table {
+width: 100%;
+border-collapse: collapse;
+border-radius: 8px;
+overflow: hidden;
+box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+.table-header {
+background-color: #db3466;
+color: white;
+
+}
+
+.header-row {
+height: 60px;
+}
+
+.header-cell {
+padding: 15px 20px;
+text-align: left;
+font-weight: 600;
+font-size: 16px;
+}
+
+.table-body {
+background-color: #e8edf1;
+}
+
+.table-row {
+border-bottom: 1px solid #e8e7f0;
+}
+
+
+
+.table-row:last-child {
+border-bottom: none;
+}
+
+.category {
+padding: 15px 20px;
+width: 30%;
+font-size: 15px;
+color: #2c3e50;
+background-color: #f0f1f1;
+border-right: 1px solid #eaeaea;
+}
+
+.details {
+padding: 15px 20px;
+font-size: 15px;
+line-height: 1.6;
+}
+
+
+
+
+@media (min-width: 1024px) {
+.container11 {
+width: 70%;
+}
+}
+
+
+@media (max-width: 1023px) {
+.container11 {
+width: 80%;
+}
+
+.title {
+font-size: 26px;
+}
+
+.header-cell,
+.category,
+.details {
+font-size: 14px;
+padding: 12px;
+}
+}
+
+/* Small Screens (Mobile) */
+@media (max-width: 768px) {
+.container1 {
+width: 95%;
+padding: 20px;
+}
+
+.title {
+font-size: 22px;
+}
+
+.rules-table {
+font-size: 13px;
+}
+
+.header-cell,
+.category,
+.details {
+font-size: 12px;
+padding: 10px;
+}
+}
+
+
+@media (max-width: 480px) {
+.container1 {
+width: 100%;
+padding: 15px;
+margin: 10px;
+}
+
+.title {
+font-size: 18px;
+}
+
+.rules-table {
+font-size: 12px;
+}
+
+.header-cell,
+.category,
+.details {
+font-size: 10px;
+padding: 8px;
+}
+
+.table-container1 {
+overflow-x: auto;
+}
+}
+
+@media (max-width: 300px) {
+.container1 {
+width: 100%;
+padding: 10px;
+margin: 5px;
+}
+
+.title {
+font-size: 16px;
+padding-bottom: 10px;
+}
+
+.rules-table {
+font-size: 10px;
+}
+
+.header-cell,
+.category,
+.details {
+font-size: 8px;
+padding: 6px;
+}
+
+.table-container1 {
+overflow-x: scroll;
+}
+}
+/* Ultra Small Screens (200px width - Smallest Devices) */
+@media (max-width: 200px) {
+.container1 {
+width: 100%;
+padding: 5px;
+margin: 3px;
+}
+
+.title {
+font-size: 14px;
+padding-bottom: 8px;
+}
+
+.rules-table {
+font-size: 8px;
+}
+
+.header-cell,
+.category,
+.details {
+font-size: 7px;
+padding: 4px;
+}
+
+.table-container1 {
+overflow-x: scroll;
+}
+}
+/* Ultra Compact Screens (100px width - Extreme Small Devices) */
+@media (max-width: 100px) {
+.container1 {
+width: 100%;
+padding: 2px;
+margin: 1px;
+}
+
+.title {
+font-size: 10px;
+padding-bottom: 5px;
+}
+
+.rules-table {
+font-size: 6px;
+}
+
+.header-cell,
+.category,
+.details {
+font-size: 5px;
+padding: 2px;
+}
+
+.table-container1 {
+overflow-x: scroll;
+}
+}
+/* Extremely Tiny Screens (20px width - Micro Devices) */
+@media (max-width: 51px) {
+.container1 {
+display: none; /* Hide the main content */
+}
+
+body::before {
+content: "Screen too small to display content.";
+font-size: 5px;
+color: white;
+background-color: black;
+padding: 2px;
+display: block;
+text-align: center;
+}
+}
